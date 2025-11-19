@@ -1,13 +1,20 @@
-# convert decimal to binary
+# find the mid product of a binary number
 
-n = int(input("Enter the number: "))
-num = n
-str1 = ""
+n = input("Enter a binary number: ")
 
-while num > 0:
-    rem = num % 2
-    str1 = str(rem) + str1
-    num //= 2
+# check if it is binary
+for digit in n:
+    if digit not in "01":
+        print("Error: Not a binary number!")
+        exit()
 
-print("The binary number:")
-print(str1)
+length = len(n)
+
+if length % 2 == 0:     # even length → two middle digits
+    mid = length // 2 - 1
+else:                   # odd length → one middle digit → multiply it by itself
+    mid = length // 2
+
+midproduct = int(n[mid]) * int(n[mid + 1])
+
+print("The binary midproduct is", midproduct)
